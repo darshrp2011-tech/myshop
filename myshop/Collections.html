@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Collections - MyShop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    /* Header / Navbar */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e2e2;
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .right-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 32px auto 40px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    /* Collections grid */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .collection-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .collection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .collection-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .collection-tag {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #eef3ff;
+      color: #3246d3;
+    }
+
+    .collection-items {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    .collection-items span {
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .collection-meta {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .collection-meta strong {
+      color: #222;
+    }
+
+    .view-link {
+      font-size: 13px;
+      color: #3246d3;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: auto;
+      align-self: flex-start;
+      border-bottom: 1px solid transparent;
+    }
+
+    .view-link:hover {
+      border-bottom-color: #3246d3;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e2e2e2;
+      margin-top: 40px;
+      padding: 16px 40px;
+      font-size: 13px;
+      color: #666;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 16px;
+      }
+      main {
+        padding: 0 16px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="hdr">
+  <div class="hdr-logo">MY<span>SHOP</span></div>
+  <nav class="hdr-nav">
+    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/product.html">Products</a>
+    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/myshop.html">Myshop</a>
+    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/about.html">About</a>
+  </nav>
+  <div class="hdr-actions">
+    <span class="user-bar" id="userBar"></span>
+    <button class="btn-ghost" id="authBtn" onclick="handleAuth()">Sign in</button>
+    <div class="cart-chip" onclick="toggleCart()">
+      <i class="ti ti-shopping-bag"></i>
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </div>
+</header>
+
+  <!-- Main content -->
+  <main>
+    <h1>Collections</h1>
+    <p class="subtitle">
+      Browse curated collections of phones, computers, audio gear, wearables, accessories,
+      and home appliances – all organized for effortless discovery.
+    </p>
+
+    <section class="collections-grid">
+
+      <!-- Phones -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Phones</div>
+            <div class="collection-tag">Tech essentials</div>
+          </div>
+          <div class="collection-items">
+            <span>• Smartphone (₹1,10,000)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Phones<br />
+            <strong>Price range:</strong> From ₹1,10,000
+          </div>
+        </div>
+        <a href="myshop.html#phones" class="view-link">View all phones →</a>
+      </article>
+
+      <!-- Computers -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Computers</div>
+            <div class="collection-tag">Work & play</div>
+          </div>
+          <div class="collection-items">
+            <span>• Laptop (₹49,999)</span><br />
+            <span>• CPU (₹20,000)</span><br />
+            <span>• GPU (₹3,99,999)</span><br />
+            <span>• Keyboard (₹900)</span><br />
+            <span>• Laptop Stand (₹600)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Computers & accessories<br />
+            <strong>Price range:</strong> ₹600 – ₹3,99,999
+          </div>
+        </div>
+        <a href="myshop.html#computers" class="view-link">View all computers →</a>
+      </article>
+
+      <!-- Audio -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Audio</div>
+            <div class="collection-tag">Sound upgrade</div>
+          </div>
+          <div class="collection-items">
+            <span>• Speaker (₹5,999)</span><br />
+            <span>• Headphones (₹2,999)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Audio<br />
+            <strong>Price range:</strong> ₹2,999 – ₹5,999
+          </div>
+        </div>
+        <a href="myshop.html#audio" class="view-link">Explore audio gear →</a>
+      </article>
+
+      <!-- Wearables -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Wearables</div>
+            <div class="collection-tag">On-the-go</div>
+          </div>
+          <div class="collection-items">
+            <span>• Smart Watch (₹3,999)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Wearables<br />
+            <strong>Price range:</strong> From ₹3,999
+          </div>
+        </div>
+        <a href="myshop.html#wearables" class="view-link">See wearables →</a>
+      </article>
+
+      <!-- Accessories -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Accessories</div>
+            <div class="collection-tag">Must‑have add‑ons</div>
+          </div>
+          <div class="collection-items">
+            <span>• Charger (₹800)</span><br />
+            <span>• Power Bank (₹1,999)</span><br />
+            <span>• Mouse (₹400)</span><br />
+            <span>• Laptop Stand (₹600)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Accessories<br />
+            <strong>Price range:</strong> ₹400 – ₹1,999
+          </div>
+        </div>
+        <a href="myshop.html#accessories" class="view-link">Browse accessories →</a>
+      </article>
+
+      <!-- Home Appliances -->
+      <article class="collection-card">
+        <div>
+          <div class="collection-header">
+            <div class="collection-title">Home Appliances</div>
+            <div class="collection-tag">Smart home</div>
+          </div>
+          <div class="collection-items">
+            <span>• AC (₹35,000)</span><br />
+            <span>• TV (₹1,99,999)</span><br />
+            <span>• Hair Dryer (₹3,999)</span>
+          </div>
+          <div class="collection-meta">
+            <strong>Category:</strong> Home<br />
+            <strong>Price range:</strong> ₹3,999 – ₹1,99,999
+          </div>
+        </div>
+        <a href="myshop.html#home" class="view-link">View home collection →</a>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 MyShop. All rights reserved.
+  </footer>
+
+</body>
+</html>

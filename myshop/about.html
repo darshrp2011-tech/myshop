@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+}
+
+.about-container{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.hero h1{
+    font-size:3rem;
+    color:#111;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    color:#666;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.about-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    margin-bottom:80px;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    line-height:1.8;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:80px;
+}
+
+.stat-box{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.stat-box h3{
+    font-size:2rem;
+    color:#000;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#777;
+}
+
+.team{
+    text-align:center;
+}
+
+.team h2{
+    margin-bottom:40px;
+    font-size:2.2rem;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.member{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.member img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.member h3{
+    margin-bottom:5px;
+}
+
+.member p{
+    color:#777;
+}
+
+footer{
+    margin-top:80px;
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    .about-content{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="about-container">
+
+    <div class="hero">
+        <h1>About Our Store</h1>
+        <p>
+            We are passionate about delivering high-quality products
+            and an exceptional shopping experience. Our goal is to make
+            online shopping simple, secure, and enjoyable for everyone.
+        </p>
+    </div>
+
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1000" alt="About Us">
+        </div>
+
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>
+                Founded with a vision to redefine online shopping,
+                our platform offers premium products at competitive prices.
+            </p>
+
+            <p>
+                We focus on quality, customer satisfaction, and innovation.
+                Every product is carefully selected to ensure the best value.
+            </p>
+
+            <p>
+                Our mission is to connect customers with products they love,
+                backed by reliable service and fast delivery.
+            </p>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">
+            <h3>10K+</h3>
+            <p>Happy Customers</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>500+</h3>
+            <p>Premium Products</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>99%</h3>
+            <p>Customer Satisfaction</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Customer Support</p>
+        </div>
+    </div>
+
+    <div class="team">
+        <h2>Meet Our Team</h2>
+
+        <div class="team-grid">
+            <div class="member">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                <h3>Darsh Patel</h3>
+                <p>Founder & CEO</p>
+            </div>
+
+            <div class="member">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                <h3>Sarah Johnson</h3>
+                <p>Marketing Manager</p>
+            </div>
+
+            <div class="member">
+                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
+                <h3>Michael Lee</h3>
+                <p>Lead Developer</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Your Store. All Rights Reserved.
+</footer>
+
+</body>
+</html>
