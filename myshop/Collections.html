@@ -3,81 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Tech Catalog | MyShop</title>
+<title>Collections - MyShop</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f4f4f4}
+body{background:#f4f4f4;color:#111}
 
-/* Header Styles */
+/* Header Styles matching index.html */
 .hdr{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:64px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
 .hdr-logo{font-size:20px;font-weight:700;letter-spacing:3px;color:#111;text-decoration:none}
 .hdr-logo span{font-weight:400;color:#888}
 .hdr-nav{display:flex;gap:2rem;align-items:center}
 .hdr-link{font-size:13px;color:#666;cursor:pointer;letter-spacing:0.5px;text-decoration:none}
-.hdr-link:hover,.hdr-link.active{color:#111;font-weight:600}
+.hdr-link:hover,.hdr-link.active{color:#111}
 .hdr-actions{display:flex;gap:10px;align-items:center}
 .cart-chip{display:flex;align-items:center;gap:6px;background:#f5f5f5;border:1px solid #e8e8e8;padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer;color:#111}
 .cart-count{background:#111;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
 
-/* Catalog Sidebar Layout */
-.catalog-layout{display:grid;grid-template-columns:260px 1fr;max-width:1400px;margin:0 auto;padding:1rem 2rem;gap:2rem}
+/* Elegant Page Layout Container */
+.main-layout{max-width:1300px;margin:2rem auto;padding:0 2rem;display:grid;grid-template-columns:240px 1fr;gap:2.5rem;align-items:start}
 
-/* Product Navigation Sidebar */
-.sidebar-nav{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:1.2rem;height:fit-content;position:sticky;top:84px}
-.sidebar-title{font-size:12px;font-weight:700;letter-spacing:1px;color:#aaa;text-transform:uppercase;margin-bottom:10px;padding-left:6px}
-.prod-menu-list{list-style:none;display:flex;flex-direction:column;gap:4px}
-.prod-menu-item{font-size:13.5px;color:#555;padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:between;transition:all 0.2s}
-.prod-menu-item:hover{background:#f5f5f5;color:#111}
-.prod-menu-item.active{background:#111;color:#fff;font-weight:600}
+/* Left Column: Sticky Fast Filtering Navigation Sidebar */
+.filter-sidebar{position:sticky;top:90px;background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:1.5rem}
+.sidebar-title{font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#111;margin-bottom:1rem;border-bottom:1px solid #eee;padding-bottom:8px}
+.filter-menu{display:flex;flex-direction:column;gap:6px;list-style:none}
+.filter-btn{width:100%;text-align:left;background:none;border:none;padding:10px 12px;font-size:13px;color:#666;border-radius:6px;cursor:pointer;display:flex;justify-content:between;align-items:center;transition:all 0.15s}
+.filter-btn:hover{background:#f5f5f5;color:#111}
+.filter-btn.active{background:#111;color:#fff;font-weight:600}
+.filter-btn span{font-size:11px;background:#eee;color:#666;padding:2px 6px;border-radius:10px}
+.filter-btn.active span{background:rgba(255,255,255,0.2);color:#fff}
 
-/* Main Display Layout */
-.prod-container{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;background:transparent}
+/* Right Column: Multi-Category Stack View */
+.content-stack{display:flex;flex-direction:column;gap:3.5rem}
+.coll-section{scroll-margin-top:90px}
+.section-header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #e8e8e8;padding-bottom:10px;margin-bottom:1.5rem}
+.section-title{font-size:20px;font-weight:700;color:#111;letter-spacing:-0.3px}
+.section-count{font-size:13px;color:#888}
 
-/* Left Column: Image Gallery */
-.gallery-wrap{display:flex;flex-direction:column;gap:12px}
-.main-img-box{width:100%;background:#fff;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
-.main-img-box img{width:100%;height:100%;object-fit:cover;transition:opacity 0.2s ease}
-.thumb-row{display:flex;gap:10px}
-.thumb{width:70px;height:70px;border:1px solid #e8e8e8;border-radius:8px;cursor:pointer;overflow:hidden;background:#fff;transition:all 0.2s}
-.thumb.active{border-color:#111;border-width:2px}
-.thumb img{width:100%;height:100%;object-fit:cover}
+/* Product Cards Row Layout */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:1.5rem}
+.product-card{background:#fff;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;transition:transform 0.2s, box-shadow 0.2s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.img-box{width:100%;height:180px;background:#f9f9f9;overflow:hidden;position:relative}
+.img-box img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.product-card:hover .img-box img{transform:scale(1.03)}
 
-/* Right Column: Product Information */
-.details-box{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:2rem;display:flex;flex-direction:column;gap:1.2rem;height:fit-content}
-.brand-tag{font-size:11px;letter-spacing:1px;color:#aaa;text-transform:uppercase}
-.prod-title{font-size:26px;font-weight:700;color:#111;line-height:1.2}
-.rating-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#666}
-.stars{color:#ffb800;display:flex;gap:2px}
-.price-tag{font-size:24px;font-weight:700;color:#111}
+/* Interactive Fast Buy Hover Button Overlay */
+.fast-add-btn{position:absolute;bottom:12px;right:12px;background:#fff;color:#111;border:none;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.1);opacity:0;transform:translateY(8px);transition:all 0.2s}
+.product-card:hover .fast-add-btn{opacity:1;transform:translateY(0)}
+.fast-add-btn:hover{background:#111;color:#fff}
 
-/* Selection Modifiers */
-.selector-group{display:flex;flex-direction:column;gap:8px}
-.selector-label{font-size:11px;font-weight:600;color:#666;letter-spacing:0.5px}
-.color-options{display:flex;gap:10px}
-.color-circle{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid #fff;outline:1px solid #ddd}
-.color-circle.active{outline:2px solid #111}
-.storage-options{display:flex;flex-wrap:wrap;gap:8px}
-.storage-pill{font-size:12px;padding:8px 14px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#fff;color:#111;font-weight:500}
-.storage-pill.active{border-color:#111;background:#111;color:#fff}
+.card-info{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+.item-name{font-size:13px;font-weight:600;color:#111;line-height:1.4}
+.item-price{font-size:14px;font-weight:700;color:#111}
 
-/* Action Buttons */
-.action-row{display:flex;gap:12px;margin-top:0.5rem}
-.btn-main-add{flex:1;background:#111;color:#fff;border:none;padding:14px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
-.btn-main-add:hover{background:#333}
-.btn-wish{background:#fff;border:1px solid #ddd;color:#666;width:48px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px}
-.btn-wish:hover{background:#f5f5f5;color:#111}
-
-/* Accordion Layout */
-.accordion{border-top:1px solid #e8e8e8;margin-top:1rem}
-.acc-item{border-bottom:1px solid #e8e8e8}
-.acc-trigger{width:100%;padding:14px 0;background:none;border:none;text-align:left;font-size:13px;font-weight:600;color:#111;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.acc-content{max-height:0;overflow:hidden;transition:max-height 0.2s ease-out;font-size:13px;color:#666;line-height:1.6;padding-bottom:0}
-.acc-item.open .acc-content{max-height:300px;padding-bottom:14px}
-.acc-trigger i{transition:transform 0.2s}
-.acc-item.open .acc-trigger i{transform:rotate(180deg)}
-
-/* Sidebar Cart */
+/* Slide-out Shopping Cart Framework */
 .cart-panel{position:fixed;top:0;right:-400px;width:360px;height:100%;background:#fff;border-left:1px solid #e8e8e8;transition:right 0.25s ease;z-index:200;display:flex;flex-direction:column}
 .cart-panel.open{right:0}
 .cart-head{padding:20px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
@@ -85,112 +65,54 @@ body{background:#f4f4f4}
 .cart-close{background:none;border:none;cursor:pointer;color:#888;font-size:20px}
 .cart-body{flex:1;overflow-y:auto;padding:16px 24px}
 .cart-empty{text-align:center;padding:3rem 0;color:#aaa;font-size:14px}
-.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f5f5f5;align-items:center}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f5f5f5}
 .cart-item-img{width:52px;height:52px;object-fit:cover;border-radius:6px;border:1px solid #eee;flex-shrink:0}
 .cart-item-info{flex:1}
 .cart-item-name{font-size:13px;font-weight:600;color:#111;margin-bottom:3px}
-.cart-item-variant{font-size:11px;color:#999;margin-bottom:2px}
-.cart-item-price{font-size:13px;color:#666}
-.cart-item-remove{background:none;border:none;color:#bbb;cursor:pointer;font-size:16px;padding:4px}
-.cart-item-remove:hover{color:#ef4444}
+.cart-item-price{font-size:13px;color:#888}
+.cart-item-remove{background:none;border:none;color:#bbb;cursor:pointer;font-size:16px;align-self:flex-start}
 .cart-foot{padding:20px 24px;border-top:1px solid #f0f0f0}
 .cart-row{display:flex;justify-content:space-between;font-size:13px;color:#888;margin-bottom:8px}
 .cart-total{display:flex;justify-content:space-between;font-size:16px;font-weight:600;color:#111;margin-bottom:16px;padding-top:8px;border-top:1px solid #f0f0f0}
 .btn-checkout{width:100%;background:#111;color:#fff;border:none;padding:13px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
-
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.2);z-index:190;display:none}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.15);z-index:190;display:none}
 .overlay.open{display:block}
-.footer{text-align:center;padding:2.5rem;font-size:13px;color:#aaa;border-top:1px solid #e8e8e8;margin-top:3rem;background:#fff}
+.footer{text-align:center;padding:2.5rem;font-size:13px;color:#aaa;border-top:1px solid #e8e8e8;margin-top:4rem;background:#fff}
 
-@media(max-width: 992px) {
-  .catalog-layout{grid-template-columns:1fr}
-  .sidebar-nav{position:static;width:100%}
-  .prod-container{grid-template-columns:1fr}
+@media(max-width: 768px){
+  .main-layout{grid-template-columns:1fr}
+  .filter-sidebar{position:static;margin-bottom:1rem}
 }
 </style>
 </head>
 <body>
 
-
 <header class="hdr">
-  <div class="hdr-logo">MY<span>SHOP</span></div>
+  <a class="hdr-logo" href="myshop.html">MY<span>SHOP</span></a>
   <nav class="hdr-nav">
-    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/myshop.html">MyShop</a>
-    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/Collections.html">Collections</a>
-    <a class="hdr-link" href="file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/about.html">About</a>
+    <a class="hdr-link" href="product.html">Products</a>
+    <a class="hdr-link active" href="Collections.html">Collections</a>
+    <a class="hdr-link" href="about.html">About</a>
   </nav>
   <div class="hdr-actions">
-    <span class="user-bar" id="userBar"></span>
-    <button class="btn-ghost" id="authBtn" onclick="handleAuth()">Sign in</button>
     <div class="cart-chip" onclick="toggleCart()">
-      <i class="ti ti-shopping-bag"></i>
-      Cart
-      <span class="cart-count" id="cartCount">0</span>
+      <i class="ti ti-shopping-bag"></i> Cart <span class="cart-count" id="cartCount">0</span>
     </div>
   </div>
 </header>
 
-<div class="catalog-layout">
-  <aside class="sidebar-nav">
+<main class="main-layout">
+  <aside class="filter-sidebar">
     <div class="sidebar-title">Categories</div>
-    <ul class="prod-menu-list" id="customProductMenu">
-      </ul>
+    <div class="filter-menu" id="sidebarMenu">
+      </div>
   </aside>
 
-  <main class="prod-container">
-    <div class="gallery-wrap">
-      <div class="main-img-box">
-        <img id="mainProductImg" src="" alt="Main Display View">
-      </div>
-      <div class="thumb-row" id="thumbRow">
-        </div>
-    </div>
+  <section class="content-stack" id="collectionsStack">
+    </section>
+</main>
 
-    <div class="details-box">
-      <div>
-        <span class="brand-tag" id="prodCategory">TAG</span>
-        <h1 class="prod-title" id="prodTitle">Product Title</h1>
-      </div>
-      
-      <div class="rating-row">
-        <div class="stars" id="prodStars">
-          </div>
-        <span id="prodRatingText">4.7 (142 reviews)</span>
-      </div>
-
-      <div class="price-tag" id="prodPrice">₹0</div>
-
-      <hr style="border:0; border-top:1px solid #e8e8e8">
-
-      <div id="dynamicVariantsContainer">
-        </div>
-
-      <div class="action-row">
-        <button class="btn-main-add" onclick="triggerAddToCart()">
-          <i class="ti ti-shopping-bag"></i> Add to Cart
-        </button>
-        <button class="btn-wish" onclick="toggleWishlist(this)" style="color:#e74c3c">
-          <i class="ti ti-heart"></i>
-        </button>
-      </div>
-
-      <div class="accordion">
-        <div class="acc-item open">
-          <button class="acc-trigger" onclick="toggleAccordion(this)">Description <i class="ti ti-chevron-down"></i></button>
-          <div class="acc-content" id="prodDesc">
-            </div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger" onclick="toggleAccordion(this)">Technical Specifications <i class="ti ti-chevron-down"></i></button>
-          <div class="acc-content" id="prodSpecs">
-            </div>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-
-<footer class="footer">© 2026 MyShop. All rights reserved.</footer>
+<footer class="footer">© 2025 MyShop. All rights reserved.</footer>
 
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
 <aside class="cart-panel" id="cartPanel">
@@ -210,451 +132,128 @@ body{background:#f4f4f4}
 </aside>
 
 <script>
-// Catalog database initialization listing 11 premium items
-const productsDataset = {
-  "smartphone": {
-    name: "Smartphone Pro",
-    cat: "Phones",
-    basePrice: 110000,
-    rating: 4.7,
-    reviews: 142,
-    desc: "Experience performance on a new level. Built with our latest generation high-efficiency system architectures, advanced dynamic fluid camera array systems, and ultra-durable crystal glass finish structures.",
-    specs: "• Display: 6.7-inch dynamic OLED pane<br>• Processor: Octa-core AI optimized chipset<br>• Battery: 4500 mAh battery pack with fast-charging controllers<br>• OS: Clean-interface customized architecture",
-    images: [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=450&fit=crop",
-      "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600&h=450&fit=crop"
-    ],
-    variants: {
-      type: "pills",
-      label: "STORAGE CAPACITY",
-      options: [
-        { name: "128 GB", priceDelta: 0 },
-        { name: "256 GB", priceDelta: 12000 },
-        { name: "512 GB", priceDelta: 35000 }
-      ],
-      colors: ["#2c3e50", "#7f8c8d", "#111111"]
-    }
-  },
-  "charger": {
-    name: "65W GaN Fast Charger",
-    cat: "Accessories",
-    basePrice: 3499,
-    rating: 4.8,
-    reviews: 94,
-    desc: "High-density Gallium Nitride structural layout design configurations engineered to deliver rapid multi-device high-velocity device transformations effortlessly.",
-    specs: "• Output: 65W Max USB-C Power Delivery<br>• Ports: 2x USB-C + 1x USB-A configuration<br>• Hardware Protection: Integrated temperature & overcurrent safeguards",
-    images: [
-    "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download%20(1).jpg",  
-    "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download.jpg"
-  ],
-    variants: {
-      type: "pills",
-      label: "CABLE INCLUDED",
-      options: [
-        { name: "Charger Only", priceDelta: 0 },
-        { name: "With 2m Type-C Cable", priceDelta: 800 }
-      ],
-      colors: ["#ffffff", "#111111"]
-    }
-  },
-  "powerbank": {
-    name: "20000mAh Power Delivery Bank",
-    cat: "Accessories",
-    basePrice: 4999,
-    rating: 4.6,
-    reviews: 210,
-    desc: "Ultra-high capacitance travel-safe battery infrastructure layout with real-time numeric load diagnostic display parameters.",
-    specs: "• Capacity: 20,000mAh Lithium Polymer<br>• Technology: USB-C Power Delivery 22.5W Fast Charge<br>• Certification: Flight safety approved deployment layout",
-    images: [
-      "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop",
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download(2).jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "EDITION",
-      options: [
-        { name: "Standard Matte", priceDelta: 0 },
-        { name: "Carbon Fiber Pro Edition", priceDelta: 1500 }
-      ],
-      colors: ["#212529", "#495057"]
-    }
-  },
-  "laptop_stand": {
-    name: "Ergonomic Aluminum Laptop Stand",
-    cat: "Office Gear",
-    basePrice: 2499,
-    rating: 4.9,
-    reviews: 340,
-    desc: "Premium aircraft-grade structural alloy geometry configured to instantly transform workstation neck alignments dynamically.",
-    specs: "• Material: Premium Sandblasted Anodized Aluminum Alloy<br>• Compatibility: Fits all hardware items spanning 11 to 17 inches<br>• Elevation Range: 6 modular adjustable tilt steps",
-    images: [
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download.webp"
-    ],
-    variants: {
-      type: "pills",
-      label: "FINISH MATRIX",
-      options: [
-        { name: "Space Grey", priceDelta: 0 },
-        { name: "Satin Silver", priceDelta: 0 }
-      ],
-      colors: ["#7f8c8d", "#d2d7d9"]
-    }
-  },
-  "mouse": {
-    name: "Precision Wireless Studio Mouse",
-    cat: "Peripherals",
-    basePrice: 8999,
-    rating: 4.7,
-    reviews: 512,
-    desc: "Advanced ultra-responsive track speed dynamics constructed with silent micro-switches and dynamic programmable thumb scrolls.",
-    specs: "• DPI Tracking: 8000 adjustable sensitivity coordinates<br>• Connectivity: Wireless 2.4Ghz Bolt + Dual Bluetooth Channels<br>• Endurance: 70 operational days loop cycles on a complete single charge",
-    images: [
-      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&h=450&fit=crop"
-    ],
-    variants: {
-      type: "pills",
-      label: "CONFIGURATION",
-      options: [
-        { name: "Standard Workspace Layout", priceDelta: 0 },
-        { name: "Performance Travel Kit Bundle", priceDelta: 2000 }
-      ],
-      colors: ["#111111", "#ffffff", "#e74c3c"]
-    }
-  },
-  "ac": {
-    name: "Smart Inverter Air Conditioner 1.5T",
-    cat: "Appliances",
-    basePrice: 45999,
-    rating: 4.5,
-    reviews: 88,
-    desc: "AI intelligent thermal modulation engine engineered to maintain stable indoor ecosystems while dynamically restricting electricity load footprints.",
-    specs: "• Cooling Potential: 1.5 Ton Variable Speed Compressor Layout<br>• Smart Integration: Home Ecosystem WiFi Control Interfaces<br>• Filtration: Quad-layer micro particle filters",
-    images: [
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download%20(3).jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "EFFICIENCY SCALE",
-      options: [
-        { name: "3-Star Efficiency Eco Pack", priceDelta: 0 },
-        { name: "5-Star Extreme Energy Saver", priceDelta: 7500 }
-      ],
-      colors: ["#ffffff"]
-    }
-  },
-  "hair_dryer": {
-    name: "Ionic Thermo Hair Dryer",
-    cat: "Lifestyle",
-    basePrice: 14999,
-    rating: 4.8,
-    reviews: 167,
-    desc: "High velocity micro-engine airflow generator that emits dense negative ion structures to shield external surface cuticles from localized hot spots.",
-    specs: "• Propulsion Engine: 110,000 RPM high-speed digital core<br>• Thermal Check: 40 measurements/sec baseline real-time auditing<br>• Sound Dampening: Low acoustic architectural vibration profiling",
-    images: [
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/shubham-dhage-O4rT7zAi4ro-unsplash.jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "ACCESSORY ATTACHMENTS",
-      options: [
-        { name: "Dual Concentrator Core", priceDelta: 0 },
-        { name: "Deluxe Styling Salon Array", priceDelta: 3500 }
-      ],
-      colors: ["#8e44ad", "#e84393", "#2d3436"]
-    }
-  },
-  "speaker": {
-    name: "Resonance Immersive Studio Speaker",
-    cat: "Audio",
-    basePrice: 24999,
-    rating: 4.9,
-    reviews: 289,
-    desc: "Handcrafted sound-stage system housing specialized active sound drivers to cast spatial sonic soundscapes throughout environments clean and unaltered.",
-    specs: "• Transducers: Dual high-excursion woofers + dual custom dome arrays<br>• Interfaces: Optical line inputs, AirPlay, Bluetooth 5.2 architecture<br>• Room Mapping: Automated internal real-time space sound calibrators",
-    images: [
-      "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&h=450&fit=crop",
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download%20(4).jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "HOUSING TIMBER EXTRUSION",
-      options: [
-        { name: "Natural Walnut Finish", priceDelta: 0 },
-        { name: "Sleek Obsidian Compound", priceDelta: 2000 }
-      ],
-      colors: ["#5c4033", "#111111"]
-    }
-  },
-  "keyboard": {
-    name: "Mechanical Linear Studio Keyboard",
-    cat: "Peripherals",
-    basePrice: 12999,
-    rating: 4.8,
-    reviews: 195,
-    desc: "Compact mechanical build featuring pre-lubricated modular linear hot-swap switches sitting inside an integrated dense sound-dampening tray layout structure.",
-    specs: "• Mechanical Array: Hot-Swappable 5-Pin Linear Modular switches<br>• Matrix Frame: 75% solid form layout containing CNC aluminum top boards<br>• Keycap Compound: Dual-shot premium dense PBT structures",
-    images: [
-      "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=600&h=450&fit=crop",
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&h=450&fit=crop"
-    ],
-    variants: {
-      type: "pills",
-      label: "SWITCH VARIETY CONFIGURATION",
-      options: [
-        { name: "Quiet Linear Reds", priceDelta: 0 },
-        { name: "Tactile Silent Browns", priceDelta: 500 },
-        { name: "Clicky Speed Blues", priceDelta: 500 }
-      ],
-      colors: ["#2d3748", "#edf2f7"]
-    }
-  },
-  "cpu": {
-    name: "Core AI-12 Hyper-Threaded Processor",
-    cat: "Components",
-    basePrice: 38999,
-    rating: 4.9,
-    reviews: 76,
-    desc: "Next-gen desktop computing powerhouse featuring asymmetric core processing units that balance gaming and intensive structural renders simultaneously.",
-    specs: "• Spatial Engine: 16 Cores (8 Performance / 8 Efficient) / 24 Threads<br>• Speed Metrics: Max boost parameters extending up to 5.4 GHz<br>• Memory Interface: PCIe Gen 5.0 ready + DDR5 dual channel layouts",
-    images: [
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/images.jpg"
- 
-    ],
-    variants: {
-      type: "pills",
-      label: "PACKAGING CHOICE",
-      options: [
-        { name: "Standard Processor Only", priceDelta: 0 },
-        { name: "Processor + Solid Liquid Cooling Block", priceDelta: 4500 }
-      ],
-      colors: ["#0f172a"]
-    }
-  },
-  "gpu": {
-    name: "Quantum Render RTX Next-Gen GPU",
-    cat: "Components",
-    basePrice: 84999,
-    rating: 4.7,
-    reviews: 113,
-    desc: "Ultra-high performance graphics acceleration deck optimized to handle complex light paths via modern dedicated hardware-level ray tracing engines.",
-    specs: "• Memory Matrix: 16GB high speed GDDR6X VRAM interface<br>• Fan Topology: Tri-sector counter-rotating bearing fan setups<br>• Energy Draw: 320W peak allocation tracking system",
-    images: [
-      "https://images.unsplash.com/photo-1591489378430-ef2f4c626b35?w=600&h=450&fit=crop",
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/gpu.jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "COOLER SYSTEM ARCHITECTURE",
-      options: [
-        { name: "Tri-Fan Air Cooler Layout", priceDelta: 0 },
-        { name: "Liquid-Cooled Closed Loop Matrix", priceDelta: 14000 }
-      ],
-      colors: ["#1e293b", "#0f172a"]
-    }
-  },
-  "tv": {
-    name: "65-inch CineMatrix 4K OLED TV",
-    cat: "Appliances",
-    basePrice: 165000,
-    rating: 4.9,
-    reviews: 204,
-    desc: "Immerse yourself in infinite contrast landscapes. Individual pixel-level emission nodes render crisp blacks and striking peak bright accents seamlessly.",
-    specs: "• Panel Geometry: 65-inch Self-lit 4K OLED matrix<br>• Speed Sync: Smooth native 120Hz display refresh controllers<br>• Smart Framework: Built-in premium smart hub application systems",
-    images: [
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/tv.jpg",
-      "file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/tv(2).jpg"
-    ],
-    variants: {
-      type: "pills",
-      label: "MOUNT INSTALLATION KIT",
-      options: [
-        { name: "Table Base Stand Mount Only", priceDelta: 0 },
-        { name: "Ultra-Flush Articulation Wall Mount Arm", priceDelta: 5500 }
-      ],
-      colors: ["#111111"]
-    }
-  }
-};
+// Inventory dataset synchronized exactly with your backend definitions
+const inventory = [
+  {id:1,  name:"Smartphone",   cat:"Phones",      price:110000, image:"https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600&h=450&fit=crop"},
+  {id:2,  name:"Laptop",       cat:"Computers",   price:49999,  image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop"},
+  {id:3,  name:"Headphones",   cat:"Audio",       price:2999,   image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop"},
+  {id:4,  name:"Smart Watch",  cat:"Wearables",   price:3999,   image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop"},
+  {id:5,  name:"Charger",      cat:"Accessories", price:800,    image:"https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=300&fit=crop"},
+  {id:6,  name:"Power Bank",   cat:"Accessories", price:1999,   image:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop"},
+  {id:7,  name:"Laptop Stand", cat:"Accessories", price:600,    image:"file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download.webp"},
+  {id:8,  name:"Mouse",        cat:"Accessories", price:400,    image:"https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop"},
+  {id:9,  name:"AC",           cat:"Home",        price:35000,  image:"file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/download%20(3).jpg"},
+  {id:10, name:"Hair Dryer",   cat:"Home",        price:3999,   image:"file:///C:/Users/Darsh%20Patel/OneDrive/Desktop/html/myshop/shubham-dhage-O4rT7zAi4ro-unsplash.jpg"},
+  {id:11, name:"Speaker",      cat:"Audio",       price:5999,   image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop"},
+  {id:12, name:"Keyboard",     cat:"Computers",   price:900,    image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop"},
+  {id:13, name:"CPU",          cat:"Computers",   price:20000,  image:"https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop"},
+  {id:14, name:"GPU",          cat:"Computers",   price:399999, image:"https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&h=300&fit=crop"},
+  {id:15, name:"TV",           cat:"Home",        price:199999, image:"https://images.unsplash.com/photo-1461151304267-38535e780c79?w=400&h=300&fit=crop"}
+];
 
-let activeKey = "smartphone";
-let selectedVariantIndex = 0;
-let selectedColorIndex = 0;
-let globalCartItems = [];
+let globalCart = [];
 
-function fmtPrice(n){ return '₹' + n.toLocaleString('en-IN'); }
+function formatPriceINR(n){ return '₹' + n.toLocaleString('en-IN'); }
 
-// Build the catalog list in the navigation sidebar
-function initializeCatalogMenu() {
-  const menuContainer = document.getElementById('customProductMenu');
-  menuContainer.innerHTML = Object.keys(productsDataset).map(key => {
-    const item = productsDataset[key];
+// Fallback script if any local image file throws a loading error
+function handleImgError(imageEl) {
+  imageEl.src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&h=300&fit=crop";
+}
+
+// Generate the sidebar links and simultaneous collection categories down the layout
+function setupCollectionLayout() {
+  // Extract distinct category tags present in array
+  const categories = [...new Set(inventory.map(item => item.cat))];
+  
+  const sidebarContainer = document.getElementById('sidebarMenu');
+  const contentContainer = document.getElementById('collectionsStack');
+  
+  // Create Left Sidebar Navigation buttons
+  sidebarContainer.innerHTML = categories.map((cat, i) => `
+    <button class="filter-btn ${i===0?'active':''}" onclick="scrollToCategory('${cat}', this)">
+      ${cat} <span>${inventory.filter(item => item.cat === cat).length}</span>
+    </button>
+  `).join('');
+
+  // Create Continuous Stack Rows for Right Side Column
+  contentContainer.innerHTML = categories.map(cat => {
+    const segmentedItems = inventory.filter(item => item.cat === cat);
     return `
-      <li class="prod-menu-item ${key === activeKey ? 'active' : ''}" onclick="switchActiveCatalogItem('${key}')">
-        <span>${item.name}</span>
-      </li>
+      <div class="coll-section" id="sec-${cat}">
+        <div class="section-header">
+          <h2 class="section-title">${cat} Collection</h2>
+          <span class="section-count">${segmentedItems.length} Products available</span>
+        </div>
+        <div class="product-grid">
+          ${segmentedItems.map(p => `
+            <div class="product-card">
+              <div class="img-box">
+                <img src="${p.image}" onerror="handleImgError(this)" alt="${p.name}">
+                <button class="fast-add-btn" onclick="pushToCart(${p.id})" title="Add to Bag">
+                  <i class="ti ti-plus"></i>
+                </button>
+              </div>
+              <div class="card-info">
+                <div class="item-name">${p.name}</div>
+                <div class="item-price">${formatPriceINR(p.price)}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
     `;
   }).join('');
 }
 
-// Update the entire product view based on selection
-function renderActiveProductView() {
-  const currentItem = productsDataset[activeKey];
+// Smooth scroll implementation targeting section divisions
+function scrollToCategory(catId, btnElement) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btnElement.classList.add('active');
   
-  // Base Text Assignments
-  document.getElementById('prodCategory').textContent = currentItem.cat.toUpperCase();
-  document.getElementById('prodTitle').textContent = currentItem.name;
-  document.getElementById('prodDesc').innerHTML = `<p>${currentItem.desc}</p>`;
-  document.getElementById('prodSpecs').innerHTML = `<p>${currentItem.specs}</p>`;
-  document.getElementById('prodRatingText').textContent = `${currentItem.rating} (${currentItem.reviews} reviews)`;
-  
-  // Render Star System
-  const starNodeBox = document.getElementById('prodStars');
-  starNodeBox.innerHTML = '';
-  const solidStars = Math.floor(currentItem.rating);
-  for(let i=0; i<5; i++) {
-    if(i < solidStars) {
-      starNodeBox.innerHTML += `<i class="ti ti-star-filled"></i>`;
-    } else if(i === solidStars && currentItem.rating % 1 !== 0) {
-      starNodeBox.innerHTML += `<i class="ti ti-star-half-filled"></i>`;
-    } else {
-      starNodeBox.innerHTML += `<i class="ti ti-star"></i>`;
-    }
+  const targetElement = document.getElementById(`sec-${catId}`);
+  if(targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' });
   }
-
-  // Load Primary Media Asset Gallery
-  document.getElementById('mainProductImg').src = currentItem.images[0];
-  const thumbRow = document.getElementById('thumbRow');
-  thumbRow.innerHTML = currentItem.images.map((url, index) => `
-    <div class="thumb ${index === 0 ? 'active' : ''}" onclick="changeImage('${url}', this)">
-      <img src="${url}" alt="Thumbnail image tracking ID ${index}">
-    </div>
-  `).join('');
-
-  // Assemble Selection Matrix Controls
-  const variantArea = document.getElementById('dynamicVariantsContainer');
-  variantArea.innerHTML = `
-    <div class="selector-group" style="margin-bottom:1rem;">
-      <span class="selector-label">${currentItem.variants.label}</span>
-      <div class="storage-options">
-        ${currentItem.variants.options.map((opt, idx) => `
-          <span class="storage-pill ${idx === selectedVariantIndex ? 'active' : ''}" onclick="selectVariantConfig(${idx})">
-            ${opt.name}
-          </span>
-        `).join('')}
-      </div>
-    </div>
-    <div class="selector-group" style="margin-bottom:1.5rem;">
-      <span class="selector-label">COLOR SPECIFICATION</span>
-      <div class="color-options">
-        ${currentItem.variants.colors.map((color, idx) => `
-          <div class="color-circle ${idx === selectedColorIndex ? 'active' : ''}" style="background:${color}" onclick="selectColorConfig(${idx})"></div>
-        `).join('')}
-      </div>
-    </div>
-  `;
-
-  calculateCurrentPriceDisplay();
 }
 
-function switchActiveCatalogItem(productKey) {
-  activeKey = productKey;
-  selectedVariantIndex = 0;
-  selectedColorIndex = 0;
+// Integrated Cart management rules
+function pushToCart(id) {
+  const match = inventory.find(p => p.id === id);
+  if(match) {
+    globalCart.push(match);
+    renderCartView();
+  }
+}
+
+function removeCartIndex(idx) {
+  globalCart.splice(idx, 1);
+  renderCartView();
+}
+
+function renderCartView() {
+  const currentTotal = globalCart.reduce((acc, current) => acc + current.price, 0);
+  document.getElementById('cartCount').textContent = globalCart.length;
+  document.getElementById('subtotal').textContent = formatPriceINR(currentTotal);
+  document.getElementById('totalAmt').textContent = formatPriceINR(currentTotal);
   
-  document.querySelectorAll('.prod-menu-item').forEach((node, idx) => {
-    node.classList.remove('active');
-    if(Object.keys(productsDataset)[idx] === productKey) {
-      node.classList.add('active');
-    }
-  });
-
-  renderActiveProductView();
-}
-
-function changeImage(imgUrl, element) {
-  document.getElementById('mainProductImg').src = imgUrl;
-  document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-  element.classList.add('active');
-}
-
-function selectVariantConfig(index) {
-  selectedVariantIndex = index;
-  document.querySelectorAll('.storage-pill').forEach((pill, idx) => {
-    pill.classList.toggle('active', idx === index);
-  });
-  calculateCurrentPriceDisplay();
-}
-
-function selectColorConfig(index) {
-  selectedColorIndex = index;
-  document.querySelectorAll('.color-circle').forEach((circle, idx) => {
-    circle.classList.toggle('active', idx === index);
-  });
-}
-
-function calculateCurrentPriceDisplay() {
-  const product = productsDataset[activeKey];
-  const activePrice = product.basePrice + product.variants.options[selectedVariantIndex].priceDelta;
-  document.getElementById('prodPrice').textContent = fmtPrice(activePrice);
-}
-
-function toggleAccordion(element) {
-  element.parentElement.classList.toggle('open');
-}
-
-function toggleWishlist(btn) {
-  const icon = btn.querySelector('i');
-  icon.classList.toggle('ti-heart');
-  icon.classList.toggle('ti-heart-filled');
-}
-
-// Shopping Cart Core Functions
-function triggerAddToCart(){
-  const product = productsDataset[activeKey];
-  const finalPrice = product.basePrice + product.variants.options[selectedVariantIndex].priceDelta;
-  const chosenVariantName = product.variants.options[selectedVariantIndex].name;
+  const bodyElement = document.getElementById('cartBody');
+  const footElement = document.getElementById('cartFoot');
   
-  globalCartItems.push({
-    name: product.name,
-    variant: chosenVariantName,
-    price: finalPrice,
-    image: product.images[0]
-  });
-
-  refreshCartState();
-  toggleCart();
-}
-
-function dropCartItem(itemIndex){
-  globalCartItems.splice(itemIndex, 1);
-  refreshCartState();
-}
-
-function refreshCartState(){
-  const summaryTotal = globalCartItems.reduce((acc, obj) => acc + obj.price, 0);
-  document.getElementById('cartCount').textContent = globalCartItems.length;
-  document.getElementById('subtotal').textContent = fmtPrice(summaryTotal);
-  document.getElementById('totalAmt').textContent = fmtPrice(summaryTotal);
-  
-  const targetBody = document.getElementById('cartBody');
-  const targetFoot = document.getElementById('cartFoot');
-  
-  if(globalCartItems.length === 0){
-    targetBody.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
-    targetFoot.style.display = 'none';
+  if(globalCart.length === 0) {
+    bodyElement.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+    footElement.style.display = 'none';
   } else {
-    targetBody.innerHTML = globalCartItems.map((item, idx) => `
+    bodyElement.innerHTML = globalCart.map((item, idx) => `
       <div class="cart-item">
-        <img class="cart-item-img" src="${item.image}" alt="${item.name}">
+        <img class="cart-item-img" src="${item.image}" onerror="handleImgError(this)" alt="${item.name}">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-variant">${item.variant}</div>
-          <div class="cart-item-price">${fmtPrice(item.price)}</div>
+          <div class="cart-item-price">${formatPriceINR(item.price)}</div>
         </div>
-        <button class="cart-item-remove" onclick="dropCartItem(${idx})">✕</button>
+        <button class="cart-item-remove" onclick="removeCartIndex(${idx})">✕</button>
       </div>
     `).join('');
-    targetFoot.style.display = 'block';
+    footElement.style.display = 'block';
   }
 }
 
@@ -662,17 +261,13 @@ function toggleCart(){
   document.getElementById('cartPanel').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('open');
 }
-
 function closeCart(){
   document.getElementById('cartPanel').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
 }
 
-// Runtime Setup Lifecycle Initialization Calls
-window.addEventListener('DOMContentLoaded', () => {
-  initializeCatalogMenu();
-  renderActiveProductView();
-});
+// Fire rendering assembly on page mount
+setupCollectionLayout();
 </script>
 </body>
 </html>
